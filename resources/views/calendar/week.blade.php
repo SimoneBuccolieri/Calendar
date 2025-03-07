@@ -18,7 +18,7 @@
                     <a href="{{ route('calendar.week', ['date' => $date->copy()->addWeek()->toDateString()]) }}" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border border-gray-200 hover:bg-gray-200 px-1 h-10 px-1 md:px-4 py-2 text-xs md:text-base">
                         Week &raquo;
                     </a>
-                                        <a href="{{ route('events.create')}}" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm text-white font-medium border border-gray-200 bg-black hover:bg-black/90 h-10 px-1 md:px-4 py-2 text-xs md:text-base">
+                    <a href="{{ route('events.create') }}" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm text-white font-medium border border-gray-200 bg-black hover:bg-black/90 h-10 px-1 md:px-4 py-2 text-xs md:text-base">
                         <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:r0:" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus h-4 w-4 mr-2"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>Add Event</button>
                     </a>
                 </div>
@@ -97,6 +97,9 @@
                     </div>
                 </div>
                 </div>
+            </div>
+            <div class="flex justify-end">
+                <a href="{{route('calendar.week', ['date' => $date->copy()->toDateString()])}}" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm text-white font-medium border border-gray-200 bg-black hover:bg-black/90 h-10 px-1 md:px-4 py-2 text-xs md:text-base">Week View</a>
             </div>
         </div>
 

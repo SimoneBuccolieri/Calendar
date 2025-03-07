@@ -20,8 +20,10 @@ Route::middleware('auth')->group(function () {
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/calendar/week', [CalendarController::class, 'weekView'])->name('calendar.week');
+    Route::get('/calendar/month', [CalendarController::class, 'monthView'])->name('calendar.month');
 });
 Route::middleware(['auth'])->group(function () {
     Route::resource('/events', EventController::class);
+
 });
 require __DIR__.'/auth.php';
