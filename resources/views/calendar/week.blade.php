@@ -99,7 +99,7 @@
                 </div>
             </div>
             <div class="flex justify-end">
-                <a href="{{route('calendar.week', ['date' => $date->copy()->toDateString()])}}" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm text-white font-medium border border-gray-200 bg-black hover:bg-black/90 h-10 px-1 md:px-4 py-2 text-xs md:text-base">Week View</a>
+                <a href="{{route('calendar.month', ['date' => $date->copy()->toDateString()])}}" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm text-white font-medium border border-gray-200 bg-black hover:bg-black/90 h-10 px-1 md:px-4 py-2 text-xs md:text-base">Month View</a>
             </div>
         </div>
 
