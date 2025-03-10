@@ -45,7 +45,10 @@
 
                 <div class="grid grid-cols-7 divide-x divide-y">
                     @for ($day = $startOfCalendar->copy(); $day->lte($endOfCalendar); $day->addDay())
-                        <div class="p-2 h-32 relative border border-gray-200 overflow-y-hidden">
+                        <div class="p-2 h-32 relative border border-gray-200 overflow-y-hidden relative">
+                            @if($day == today())
+                                <div class="absolute top-2 text-xs rounded-2xl text-white bg-gray-600 px-1">Oggi</div>
+                            @endif
                             @if($day->month == $date->month)
                                 <div class="absolute top-0 right-0 text-xs font-bold">{{ $day->format('d') }}</div>
                                 @if(isset($calendar[$day->toDateString()]))

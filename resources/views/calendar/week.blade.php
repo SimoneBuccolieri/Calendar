@@ -43,9 +43,12 @@
                             @php
                                 $currentDay = $date->startOfWeek()->copy()->addDays($i);
                             @endphp
-                            <div class="p-2 h16 sm:h-20 text-center font-medium border-b border-gray-200">
+                            <div class="p-2 h16 sm:h-20 text-center font-medium border-b border-gray-200 relative">
                                 <div class="text-sm">{{ $currentDay->translatedFormat('D') }}</div>
                                 <div class="text-lg">{{ $currentDay->format('d') }}</div>
+                                @if($currentDay == today())
+                                    <div class="absolute top-0 rounded-2xl text-white bg-blue-600 px-1">Oggi</div>
+                                @endif
                             </div>
                         @endforeach
                         @foreach(range(0, 6) as $dayIndex)

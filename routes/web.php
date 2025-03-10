@@ -5,9 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -19,8 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::middleware(['auth'])->group(function () {
-    Route::get('/calendar/week', [CalendarController::class, 'weekView'])->name('calendar.week');
-    Route::get('/calendar/month', [CalendarController::class, 'monthView'])->name('calendar.month');
+    Route::get('/', [CalendarController::class, 'weekView'])->name('calendar.week');
+    Route::get('/week', [CalendarController::class, 'weekView'])->name('calendar.week');
+    Route::get('/month', [CalendarController::class, 'monthView'])->name('calendar.month');
 });
 Route::middleware(['auth'])->group(function () {
     Route::resource('/events', EventController::class);
