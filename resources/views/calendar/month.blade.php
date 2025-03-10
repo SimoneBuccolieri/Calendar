@@ -6,7 +6,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="flex items-center space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar h-6 w-6"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <h1 class="text-2xl font-bold mx-2">{{$date->format('M Y')}}</h1>
+                    <h1 class="text-2xl font-bold mx-2 uppercase">{{$date->locale('it')->translatedFormat('F Y')}}</h1>
                 </div>
                 <div class="flex items-center md:space-x-2">
                     <a href="{{ route('calendar.month', ['date' => $date->copy()->subMonth()->toDateString()]) }}" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border border-gray-200 hover:bg-gray-200 h-10 px-1 md:px-4 py-2 text-xs md:text-base">
@@ -54,7 +54,8 @@
                                 @if(isset($calendar[$day->toDateString()]))
                                     @foreach($calendar[$day->toDateString()] as $event)
                                         <a href="{{ route('events.show', ['event' => $event['id']]) }}">
-                                            <div class="bg-blue-500 text-white p-1 rounded mb-1 text-xs">
+                                            <div class=" text-white p-1 rounded mb-1 text-xs"
+                                            style="background-color: {{$event['color']}}">
                                                 {{ $event['title'] }}
                                             </div>
                                         </a>

@@ -21,7 +21,10 @@
                 <p class="px-4 text-xl font-semibold">Fine</p>
                 <input type="datetime-local" name="end_time" class="border rounded border-gray-200 mb-3" value="{{now()->format('Y-m-d H:i')}}">
             </div>
-
+            <div class="flex flex-col md:flex-row  ">
+                <p class="px-4 text-xl font-semibold">Colore</p>
+                <input type="color" name="color" value="#3498db" required>
+            </div>
             <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border border-gray-200 hover:bg-blue-600 hover:text-white h-10  px-1 md:px-4 py-2 ">Salva</button>
         </form>
     </div>

@@ -34,7 +34,7 @@
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                <a class="hover:underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
@@ -43,5 +43,22 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+        <p class="mt-4 text-center text-sm text-gray-600">
+            Non hai un account?
+            <a href="{{ route('register') }}" class="text-gray-600 hover:underline">
+                Registrati qui
+            </a>
+        </p>
+        <button type="button" onclick="autoLogin()" class="px-4 py-2 hover:underline text-xs text-gray-800 rounded ">
+            Login as Root
+        </button>
+
     </form>
 </x-guest-layout>
+<script>
+    function autoLogin() {
+        document.getElementById('email').value = 'root@root.com';
+        document.getElementById('password').value = 'root';
+        document.forms[0].submit();
+    }
+</script>

@@ -6,7 +6,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="flex items-center space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar h-6 w-6"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <h1 class="text-2xl font-bold mx-2">{{$date->format('M Y')}}</h1>
+                    <h1 class="text-2xl font-bold mx-2 uppercase">{{$date->locale('it')->translatedFormat('F Y')}}</h1>
                 </div>
                 <div class="flex items-center md:space-x-2">
                     <a href="{{ route('calendar.week', ['date' => $date->copy()->subWeek()->toDateString()]) }}" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border border-gray-200 hover:bg-gray-200 h-10 px-1 md:px-4 py-2 text-xs md:text-base">
@@ -47,7 +47,7 @@
                                 <div class="text-sm">{{ $currentDay->translatedFormat('D') }}</div>
                                 <div class="text-lg">{{ $currentDay->format('d') }}</div>
                                 @if($currentDay == today())
-                                    <div class="absolute top-0 rounded-2xl text-white bg-blue-600 px-1">Oggi</div>
+                                    <div class="absolute top-0 rounded-2xl text-white  px-1">Oggi</div>
                                 @endif
                             </div>
                         @endforeach
@@ -62,6 +62,7 @@
                                                 $isEndDay   = $event['isEndDay'];
                                                 $eventStart = \Carbon\Carbon::parse($event['start_time']);
                                                 $eventEnd   = \Carbon\Carbon::parse($event['end_time']);
+                                                $bgcolor = $event['color'];
 
                                                 // Se l'evento inizia oggi, calcola l'offset verticale in base ai minuti,
                                                 // altrimenti inizia dall'inizio della cella (0)
@@ -85,8 +86,8 @@
                                             @endphp
 
                                             <a href="{{route('events.show', ['event' => $event['id']])}}">
-                                            <div class="absolute left-2 right-2 bg-blue-500 text-white p-2 rounded-lg shadow-md z-20 border border-white min-h-fit"
-                                                 style="top: calc({{ $topOffset }}%); height: calc({{ $heightPercent }}%);">
+                                            <div class="absolute left-2 right-2 text-white p-2 rounded-lg shadow-md z-20 border border-white min-h-fit"
+                                                 style="top: calc({{ $topOffset }}%); height: calc({{ $heightPercent }}%);background-color: {{$bgcolor}}">
                                                 <p class="text-xs font-bold">{{ $event['title'] }}</p>
                                                 <p class="text-xs">{{ $eventStart->format('H:i') }} - {{ $eventEnd->format('H:i') }}</p>
                                             </div></a>

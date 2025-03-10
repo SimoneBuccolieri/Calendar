@@ -25,6 +25,7 @@ class EventController extends Controller
             'title' => 'required',
             'start_time' => 'required|date',
             'end_time' => 'required|date|after:start_time',
+            'color' => 'required',
         ]);
 
         Event::create([
@@ -33,6 +34,7 @@ class EventController extends Controller
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
             'user_id' => auth()->id(),
+            'color' => $request->color,
         ]);
 
         $view = session('calendar_view', 'week');
@@ -68,6 +70,7 @@ class EventController extends Controller
             'title' => 'required',
             'start_time' => 'required|date',
             'end_time' => 'required|date|after:start_time',
+            'color' => 'required',
         ]);
         $event->update($validatedData);
 

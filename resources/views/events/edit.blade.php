@@ -23,6 +23,10 @@
                     <p class="px-4  ">Fine</p>
                     <input class="border rounded border-gray-200  mb-3" type="datetime-local" name="end_time" value="{{$event->end_time}}">
                 </div>
+                <div class="flex flex-col md:flex-row  ">
+                    <p class="px-4 ">Colore</p>
+                    <input class="border rounded border-gray-200  mb-3" type="color" name="color" value="{{$event->color}}" required>
+                </div>
                 <button type="submit" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border border-gray-200 hover:bg-blue-600 hover:text-white h-10  px-1 md:px-4 py-2 ">
                     Salva
                 </button>
