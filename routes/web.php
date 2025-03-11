@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [CalendarController::class, 'weekView'])->name('calendar.week');
+    Route::get('/', [CalendarController::class, 'weekView'])->name('calendar.home');
     Route::get('/week', [CalendarController::class, 'weekView'])->name('calendar.week');
     Route::get('/month', [CalendarController::class, 'monthView'])->name('calendar.month');
 });
