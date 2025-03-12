@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="font-bold flex items-center">
-                    <a href="https://simonebuccolieri.com">
+                    <a href="https://calendar.simonebuccolieri.com">
                         SB
                     </a>
                 </div>
